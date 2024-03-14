@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="main-login">
+        <div class="left-login">
+            <h1>Registe-se<br>Para relembrar das suas lentes</h1>
+            <img src="logo.svg" class="left-login-image">
+        </div>
+        <div class="right-login">
+            <div class="card-login">
+                <h1>REGISTE-SE</h1>
+                <form id="register-form" action="process.php" method="post">
+                    <div class="textfield">
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome" id="nome" placeholder="Nome" required>
+                    </div>
+                    <div class="textfield">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Email" required>
+                    </div>
+                    <div class="textfield">
+                        <label for="nif">NIF</label>
+                        <input type="text" name="nif" id="nif" placeholder="NIF" required>
+                    </div>
+                    <div class="textfield">
+                        <label for="data_inicio">Início de Uso</label>
+                        <input type="date" id="data_inicio" name="data_inicio" required>
+                    </div>
+                    <div class="textfield">
+                        <label for="tipo_lentes">Tipo de lente</label>
+                        <div class="select-container">
+                            <select id="tipo_lentes" name="tipo_lentes" onchange="mostrarUnidades()" required>
+                                <option value="Diária">Diária</option>
+                                <option value="Quinzenal">Quinzenal</option>
+                                <option value="Mensal">Mensal</option>
+                                <option value="Trimestral">Trimestral</option>
+                                <option value="Anual">Anual</option>
+                            </select>
+                            <span class="select-arrow"></span>
+                        </div>
+                    </div>
+                    <div class="textfield">
+                        <label for="tipo_embalagem">Quantidade da Embalagem</label>
+                        <div class="select-container">
+                            <select id="tipo_embalagem" name="tipo_embalagem" required>
+                                <option value="1">1 unidade</option>
+                                <option value="3">3 unidades</option>
+                                <option value="6">6 unidades</option>
+                                <option value="30">30 unidades</option>
+                                <option value="90">90 unidades</option>
+                            </select>
+                            <span class="select-arrow"></span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-login">Registar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('register-form').addEventListener('submit', function(event) {
+            var form = event.target;
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                alert('Por favor, preencha todos os campos.');
+            }
+        });
+    </script>
+</body>
+</html>
